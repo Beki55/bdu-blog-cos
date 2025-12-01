@@ -131,14 +131,16 @@ const AppSidebar: React.FC = () => {
                 <span className={`menu-item-text`}>{nav.name}</span>
               )}
               {(isExpanded || isHovered || isMobileOpen) && (
-                <ChevronDownIcon
+                <span
                   className={`ml-auto w-5 h-5 transition-transform duration-200  ${
                     openSubmenu?.type === menuType &&
                     openSubmenu?.index === index
                       ? "rotate-180 text-brand-500"
                       : ""
                   }`}
-                />
+                >
+                  <ChevronDownIcon />
+                </span>
               )}
             </button>
           ) : (
@@ -308,23 +310,23 @@ const AppSidebar: React.FC = () => {
           !isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
         }`}
       >
-        <Link href="/">
+        <Link href="/" className="flex items-center gap-3">
           {isExpanded || isHovered || isMobileOpen ? (
             <>
               <Image
-                className="dark:hidden"
-                src="/images/logo/logo.svg"
+                className="rounded-full "
+                src="/images/download.jpeg"
                 alt="Logo"
-                width={150}
-                height={40}
-              />
-              <Image
+                width={60}
+                height={60}
+              />              {/* <Image
                 className="hidden dark:block"
                 src="/images/logo/logo-dark.svg"
                 alt="Logo"
                 width={150}
                 height={40}
-              />
+              /> */}
+              <span className="font-semibold text-lg text-gray-800 dark:text-white">BDU Blog</span>
             </>
           ) : (
             <Image
